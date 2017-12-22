@@ -1,5 +1,5 @@
 class CommunionPdf < Prawn::Document
-  def initialize(names)
+  def initialize(lineup)
     super()
 
     # Basic font options.
@@ -11,12 +11,10 @@ class CommunionPdf < Prawn::Document
     white = 'FFFFFF'
     black = '000000'
 
-    # Order Header
-    text "Names", align: :right, style: :bold, size: 24
-    if names
-      names.each do |name|
-        text name, align: :left, style: :italic, size: 14
-      end
+    text "Names", align: :left, style: :bold, size: 24
+
+    (1..18).each do |i|
+      text "#{i} - #{lineup["position_#{i}"] || "No Entry"}", align: :left, style: :italic, size: 14
     end
   end
 end
