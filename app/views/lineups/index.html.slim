@@ -1,0 +1,5 @@
+- if Lineup.count > 0
+  - Lineup.find_each do |lineup|
+    h1 = link_to "#{lineup.service_date}", lineup_path(lineup)
+- else
+  h1 No Lineups
