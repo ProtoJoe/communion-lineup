@@ -501,10 +501,10 @@ class CommunionPdf < Prawn::Document
 
   def draw_front_right
     draw_section_box(589, 310, FRONT_RIGHT_DARK, FRONT_RIGHT_LIGHT, 80, 45)
-    draw_position_circle(684, 330, "3", FRONT_RIGHT_DARK)
-    draw_line([684, 315], [684, 270], FRONT_RIGHT_DARK, 4, nil, :down_arrow)
-    draw_position_circle(494, 330, "5", FRONT_RIGHT_LIGHT)
-    draw_line([494, 315], [494, 270], FRONT_RIGHT_LIGHT, 4, nil, :down_arrow)
+    draw_position_circle(684, 330, "5", FRONT_RIGHT_LIGHT)
+    draw_line([684, 315], [684, 270], FRONT_RIGHT_LIGHT, 4, nil, :down_arrow)
+    draw_position_circle(494, 330, "3", FRONT_RIGHT_DARK)
+    draw_line([494, 315], [494, 270], FRONT_RIGHT_DARK, 4, nil, :down_arrow)
   end
 
   def draw_back_section
@@ -659,8 +659,8 @@ class CommunionPdf < Prawn::Document
     draw_lineup_name(lineup.position_1, 364, 330)
 
     # Fill right front names.
-    draw_lineup_name(lineup.position_5, 515, 330)
-    draw_lineup_name(lineup.position_3, 592, 330)
+    draw_lineup_name(lineup.position_3, 515, 330)
+    draw_lineup_name(lineup.position_5, 592, 330)
 
     # Fill left back names.
     draw_lineup_name(lineup.position_12, 60, 210)
