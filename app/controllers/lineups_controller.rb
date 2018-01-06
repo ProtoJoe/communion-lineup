@@ -20,7 +20,7 @@ end
   def show
     pdf = CommunionPdf.new(@lineup)
     send_data pdf.render,
-              filename: "communion_lineup.pdf",
+              filename: "communion_lineup_#{@lineup.service_date}.pdf",
               type: 'application/pdf',
               disposition: 'inline'
   end
