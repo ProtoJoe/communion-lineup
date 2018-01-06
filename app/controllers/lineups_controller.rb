@@ -11,11 +11,27 @@ class LineupsController < ApplicationController
   def create
     @lineup = Lineup.new(lineup_params)
     if @lineup.save
-      redirect_to lineup_path(@lineup)
+      redirect_to lineups_path
     else
       render 'new'
     end
-end
+  end
+
+  def edit
+  end
+
+  def update
+    if @lineup.update(lineup_params)
+      redirect_to lineups_path
+    else
+      redirect_to edit_lineup_path(@lineup), alert: 'There were one or more problems saving the information. See errors below.'
+    end
+  end
+
+  def destroy
+    @lineup.destroy!
+    redirect_to lineups_path
+  end
 
   def show
     pdf = CommunionPdf.new(@lineup)
