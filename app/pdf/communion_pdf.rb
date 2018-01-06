@@ -635,52 +635,56 @@ class CommunionPdf < Prawn::Document
     draw_line([542, 442], [200, 442], CHOIR_LIGHT, 2, nil, :circle)
   end
 
+  def line_break_name(name)
+    return name.gsub(' ', "\n")
+  end
+
   def fill_names(lineup)
     fill_color WHITE
 
     # Fill loft names.
-    draw_lineup_name(lineup.position_18, 250, 515)
-    draw_lineup_name(lineup.position_17, 392, 515)
+    draw_lineup_name(line_break_name(lineup.position_18), 250, 515)
+    draw_lineup_name(line_break_name(lineup.position_17), 392, 515)
 
     # Fill left wing names.
-    draw_lineup_name(lineup.position_12, 15, 520)
-    draw_lineup_name(lineup.position_10, 15, 470)
+    draw_lineup_name(line_break_name(lineup.position_12), 15, 520)
+    draw_lineup_name(line_break_name(lineup.position_10), 15, 470)
 
     # Fill right wing names.
-    draw_lineup_name(lineup.position_11, 630, 520)
-    draw_lineup_name(lineup.position_9, 630, 470)
+    draw_lineup_name(line_break_name(lineup.position_11), 630, 520)
+    draw_lineup_name(line_break_name(lineup.position_9), 630, 470)
 
     # Fill left front names.
-    draw_lineup_name(lineup.position_6, 60, 330)
-    draw_lineup_name(lineup.position_4, 138, 330)
+    draw_lineup_name(line_break_name(lineup.position_6), 60, 330)
+    draw_lineup_name(line_break_name(lineup.position_4), 138, 330)
 
     # Fill mid front names.
-    draw_lineup_name(lineup.position_2, 290, 330)
-    draw_lineup_name(lineup.position_1, 364, 330)
+    draw_lineup_name(line_break_name(lineup.position_2), 290, 330)
+    draw_lineup_name(line_break_name(lineup.position_1), 364, 330)
 
     # Fill right front names.
-    draw_lineup_name(lineup.position_3, 515, 330)
-    draw_lineup_name(lineup.position_5, 592, 330)
+    draw_lineup_name(line_break_name(lineup.position_3), 515, 330)
+    draw_lineup_name(line_break_name(lineup.position_5), 592, 330)
 
     # Fill left back names.
-    draw_lineup_name(lineup.position_12, 60, 210)
-    draw_lineup_name(lineup.position_10, 138, 210)
+    draw_lineup_name(line_break_name(lineup.position_12), 60, 210)
+    draw_lineup_name(line_break_name(lineup.position_10), 138, 210)
 
     # Fill mid back names.
-    draw_lineup_name(lineup.position_8, 290, 210)
-    draw_lineup_name(lineup.position_7, 364, 210)
+    draw_lineup_name(line_break_name(lineup.position_8), 290, 210)
+    draw_lineup_name(line_break_name(lineup.position_7), 364, 210)
 
     # Fill right back names.
-    draw_lineup_name(lineup.position_9, 515, 210)
-    draw_lineup_name(lineup.position_11, 592, 210)
+    draw_lineup_name(line_break_name(lineup.position_9), 515, 210)
+    draw_lineup_name(line_break_name(lineup.position_11), 592, 210)
 
     # Fill left balcony names.
-    draw_lineup_name(lineup.position_16, 60, 90)
-    draw_lineup_name(lineup.position_14, 138, 90)
+    draw_lineup_name(line_break_name(lineup.position_16), 60, 90)
+    draw_lineup_name(line_break_name(lineup.position_14), 138, 90)
 
     # Fill right balcony names.
-    draw_lineup_name(lineup.position_13, 515, 90)
-    draw_lineup_name(lineup.position_15, 592, 90)
+    draw_lineup_name(line_break_name(lineup.position_13), 515, 90)
+    draw_lineup_name(line_break_name(lineup.position_15), 592, 90)
 
     # Test rectangle...
     # fill_color BLACK
