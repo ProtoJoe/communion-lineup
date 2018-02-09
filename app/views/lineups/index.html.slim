@@ -1,16 +1,17 @@
-= link_to 'Create a New Lineup', new_lineup_path
-- if Lineup.count > 0
-  h1 Existing Lineups:
-  - Lineup.order(service_date: :asc).each do |lineup|
-    h2 = "Communion Lineup for #{lineup.service_date}"
-    p
-      = link_to 'View', lineup_path(lineup), target: '_blank'
-      = ' - '
-      = link_to 'Edit', edit_lineup_path(lineup)
-      = ' - '
-      = link_to 'Delete', lineup_path(lineup),
-                          method: :delete,
-                          data: { confirm: "Are you sure you wish to delete this entry?" }
-    p = "(Debug: #{lineup.id})"
-- else
-  h1 No Lineups
+.container
+  = link_to 'Create a New Lineup', new_lineup_path
+  - if Lineup.count > 0
+    h1 Existing Lineups:
+    - Lineup.order(service_date: :asc).each do |lineup|
+      h2 = "Communion Lineup for #{lineup.service_date}"
+      p
+        = link_to 'View', lineup_path(lineup), target: '_blank'
+        = ' - '
+        = link_to 'Edit', edit_lineup_path(lineup)
+        = ' - '
+        = link_to 'Delete', lineup_path(lineup),
+                            method: :delete,
+                            data: { confirm: "Are you sure you wish to delete this entry?" }
+      p = "(Debug: #{lineup.id})"
+  - else
+    h1 No Lineups
