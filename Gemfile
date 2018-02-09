@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'rails', '~> 5.1.1'
 # Postgres for DB
-gem 'pg'
+gem 'pg', '~> 0.20'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -30,6 +29,9 @@ gem 'prawn-grouping'
 gem 'prawn-table'
 gem 'prawn_rails'
 gem 'responders'
+
+# Bootstrap
+gem 'bootstrap', '~> 4.0.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
