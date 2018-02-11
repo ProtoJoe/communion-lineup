@@ -7,6 +7,8 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
+    link rel="icon" type="image/png" href="#{asset_path('srbc.jpg')}"
+
   ruby:
     if flash.empty?
       body_class = controller.action_name
