@@ -484,11 +484,11 @@ class CommunionPdf < Prawn::Document
   end
 
   def draw_front_left
-    draw_section_box(135, 310, FRONT_LEFT_LIGHT, FRONT_LEFT_DARK, 80, 45)
+    draw_section_box(135, 310, FRONT_LEFT_DARK, FRONT_LEFT_LIGHT, 80, 45)
     draw_position_circle(230, 330, "4", FRONT_LEFT_DARK)
-    draw_line([230, 315], [230, 270], FRONT_LEFT_DARK, 4, nil, :down_arrow)
+    draw_line([230, 315], [230, 190], FRONT_LEFT_DARK, 4, nil, :down_arrow)
     draw_position_circle(40, 330, "6", FRONT_LEFT_LIGHT)
-    draw_line([40, 315], [40, 270], FRONT_LEFT_LIGHT, 4, nil, :down_arrow)
+    draw_line([40, 315], [40, 190], FRONT_LEFT_LIGHT, 4, nil, :down_arrow)
   end
 
   def draw_front_mid
@@ -502,9 +502,9 @@ class CommunionPdf < Prawn::Document
   def draw_front_right
     draw_section_box(589, 310, FRONT_RIGHT_DARK, FRONT_RIGHT_LIGHT, 80, 45)
     draw_position_circle(684, 330, "5", FRONT_RIGHT_LIGHT)
-    draw_line([684, 315], [684, 270], FRONT_RIGHT_LIGHT, 4, nil, :down_arrow)
+    draw_line([684, 315], [684, 190], FRONT_RIGHT_LIGHT, 4, nil, :down_arrow)
     draw_position_circle(494, 330, "3", FRONT_RIGHT_DARK)
-    draw_line([494, 315], [494, 270], FRONT_RIGHT_DARK, 4, nil, :down_arrow)
+    draw_line([494, 315], [494, 190], FRONT_RIGHT_DARK, 4, nil, :down_arrow)
   end
 
   def draw_back_section
@@ -514,7 +514,8 @@ class CommunionPdf < Prawn::Document
   end
 
   def draw_back_left
-    draw_section_box(135, 180, LEFT_WING_DARK, LEFT_WING_LIGHT, 80, 45)
+    draw_section_box(135, 203.5, FRONT_LEFT_DARK, FRONT_LEFT_LIGHT, 80, 21.5)
+    draw_section_box(135, 156.5, LEFT_WING_DARK, LEFT_WING_LIGHT, 80, 21.5)
   end
 
   def draw_back_mid
@@ -526,7 +527,8 @@ class CommunionPdf < Prawn::Document
   end
 
   def draw_back_right
-    draw_section_box(589, 180, RIGHT_WING_DARK, RIGHT_WING_LIGHT, 80, 45)
+    draw_section_box(589, 203.5, FRONT_RIGHT_DARK, FRONT_RIGHT_LIGHT, 80, 21.5)
+    draw_section_box(589, 156.5, RIGHT_WING_DARK, RIGHT_WING_LIGHT, 80, 21.5)
   end
 
   def draw_left_wing
@@ -535,17 +537,17 @@ class CommunionPdf < Prawn::Document
     draw_line([110, 416], [20, 390], LEFT_WING_LIGHT, 4, nil, :circle)
     draw_line([20, 390], [22, 240], LEFT_WING_LIGHT, 4, nil, :circle, :dash)
     draw_line([22, 240], [240, 240], LEFT_WING_LIGHT, 4, nil, :circle, :dash)
-    draw_line([240, 240], [240, 140], LEFT_WING_LIGHT, 4, nil, :circle)
-    draw_line([240, 140], [228, 140], LEFT_WING_LIGHT, 4, nil, :circle)
-    draw_line([228, 140], [228, 210], LEFT_WING_LIGHT, 4, nil, :up_arrow)
+    draw_line([240, 240], [240, 140], LEFT_WING_LIGHT, 4, nil, :circle, :dash)
+    draw_line([240, 140], [230, 140], LEFT_WING_LIGHT, 4, nil, :circle, :sah)
+    draw_line([230, 140], [230, 170], LEFT_WING_LIGHT, 4, nil, :up_arrow)
 
     draw_position_circle(50, 555, "12", LEFT_WING_DARK)
     draw_line([35, 550], [-25, 500], LEFT_WING_DARK, 4, nil, :circle)
     draw_line([-25, 500], [5, 220], LEFT_WING_DARK, 4, nil, :circle, :dash)
     draw_line([5, 220], [23, 223], LEFT_WING_DARK, 4, nil, :circle, :dash)
-    draw_line([23, 223], [23, 140], LEFT_WING_DARK, 4, nil, :circle)
-    draw_line([23, 140], [35, 140], LEFT_WING_DARK, 4, nil, :circle)
-    draw_line([35, 140], [35, 210], LEFT_WING_DARK, 4, nil, :up_arrow)
+    draw_line([23, 223], [23, 140], LEFT_WING_DARK, 4, nil, :circle, :dash)
+    draw_line([23, 140], [40, 140], LEFT_WING_DARK, 4, nil, :circle, :dash)
+    draw_line([40, 140], [40, 170], LEFT_WING_DARK, 4, nil, :up_arrow)
   end
 
   def draw_right_wing
@@ -554,17 +556,17 @@ class CommunionPdf < Prawn::Document
     draw_line([605, 416], [705, 390], RIGHT_WING_LIGHT, 4, nil, :circle)
     draw_line([705, 390], [703, 240], RIGHT_WING_LIGHT, 4, nil, :circle, :dash)
     draw_line([703, 240], [485, 240], RIGHT_WING_LIGHT, 4, nil, :circle, :dash)
-    draw_line([485, 240], [485, 140], RIGHT_WING_LIGHT, 4, nil, :circle)
-    draw_line([485, 140], [497, 140], RIGHT_WING_LIGHT, 4, nil, :circle)
-    draw_line([497, 140], [497, 210], RIGHT_WING_LIGHT, 4, nil, :up_arrow)
+    draw_line([485, 240], [485, 140], RIGHT_WING_LIGHT, 4, nil, :circle, :dash)
+    draw_line([485, 140], [494, 140], RIGHT_WING_LIGHT, 4, nil, :circle, :dash)
+    draw_line([494, 140], [494, 170], RIGHT_WING_LIGHT, 4, nil, :up_arrow)
 
     draw_position_circle(685, 555, "11", RIGHT_WING_DARK)
     draw_line([700, 550], [750, 500], RIGHT_WING_DARK, 4, nil, :circle)
     draw_line([750, 500], [720, 220], RIGHT_WING_DARK, 4, nil, :circle, :dash)
     draw_line([720, 220], [702, 223], RIGHT_WING_DARK, 4, nil, :circle, :dash)
-    draw_line([702, 223], [702, 140], RIGHT_WING_DARK, 4, nil, :circle)
-    draw_line([702, 140], [690, 140], RIGHT_WING_DARK, 4, nil, :circle)
-    draw_line([690, 140], [690, 210], RIGHT_WING_DARK, 4, nil, :up_arrow)
+    draw_line([702, 223], [702, 140], RIGHT_WING_DARK, 4, nil, :circle, :dash)
+    draw_line([702, 140], [684, 140], RIGHT_WING_DARK, 4, nil, :circle, :dash)
+    draw_line([684, 140], [684, 170], RIGHT_WING_DARK, 4, nil, :up_arrow)
   end
 
   def draw_loft
@@ -667,16 +669,20 @@ class CommunionPdf < Prawn::Document
     draw_lineup_name(line_break_name(lineup.position_5), 592, 330)
 
     # Fill left back names.
-    draw_lineup_name(line_break_name(lineup.position_12), 60, 210)
-    draw_lineup_name(line_break_name(lineup.position_10), 138, 210)
+    draw_lineup_name(line_break_name(lineup.position_6), 60, 215)
+    draw_lineup_name(line_break_name(lineup.position_4), 138, 215)
+    draw_lineup_name(line_break_name(lineup.position_12), 60, 168)
+    draw_lineup_name(line_break_name(lineup.position_10), 138, 168)
 
     # Fill mid back names.
     draw_lineup_name(line_break_name(lineup.position_8), 290, 210)
     draw_lineup_name(line_break_name(lineup.position_7), 364, 210)
 
     # Fill right back names.
-    draw_lineup_name(line_break_name(lineup.position_9), 515, 210)
-    draw_lineup_name(line_break_name(lineup.position_11), 592, 210)
+    draw_lineup_name(line_break_name(lineup.position_3), 515, 215)
+    draw_lineup_name(line_break_name(lineup.position_5), 592, 215)
+    draw_lineup_name(line_break_name(lineup.position_9), 515, 168)
+    draw_lineup_name(line_break_name(lineup.position_11), 592, 168)
 
     # Fill left balcony names.
     draw_lineup_name(line_break_name(lineup.position_16), 60, 90)
