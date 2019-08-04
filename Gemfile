@@ -31,7 +31,7 @@ gem 'prawn_rails'
 gem 'responders'
 
 # Bootstrap
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
