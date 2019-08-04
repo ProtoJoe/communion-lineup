@@ -699,20 +699,20 @@ class CommunionPdf < Prawn::Document
     draw_lineup_name(line_break_name(lineup.position_5), 592, 330)
 
     # Fill left back names.
-    draw_lineup_name(line_break_name(lineup.position_6), 60, 215)
-    draw_lineup_name(line_break_name(lineup.position_4), 138, 215)
-    draw_lineup_name(line_break_name(lineup.position_12), 60, 168)
-    draw_lineup_name(line_break_name(lineup.position_10), 138, 168)
+    draw_lineup_name(line_break_name(lineup.position_6), 60, 215, 25)
+    draw_lineup_name(line_break_name(lineup.position_4), 138, 215, 25)
+    draw_lineup_name(line_break_name(lineup.position_12), 60, 168, 25)
+    draw_lineup_name(line_break_name(lineup.position_10), 138, 168, 25)
 
     # Fill mid back names.
     draw_lineup_name(line_break_name(lineup.position_8), 290, 210)
     draw_lineup_name(line_break_name(lineup.position_7), 364, 210)
 
     # Fill right back names.
-    draw_lineup_name(line_break_name(lineup.position_3), 515, 215)
-    draw_lineup_name(line_break_name(lineup.position_5), 592, 215)
-    draw_lineup_name(line_break_name(lineup.position_9), 515, 168)
-    draw_lineup_name(line_break_name(lineup.position_11), 592, 168)
+    draw_lineup_name(line_break_name(lineup.position_3), 515, 215, 25)
+    draw_lineup_name(line_break_name(lineup.position_5), 592, 215, 25)
+    draw_lineup_name(line_break_name(lineup.position_9), 515, 168, 25)
+    draw_lineup_name(line_break_name(lineup.position_11), 592, 168, 25)
 
     # Fill left balcony names.
     draw_lineup_name(line_break_name(lineup.position_16), 60, 90)
@@ -730,12 +730,13 @@ class CommunionPdf < Prawn::Document
   end
 
   # Helper functions.
-  def draw_lineup_name(name, x, y)
+  def draw_lineup_name(name, x, y, height=40, width=70)
     text_box  name,
-              height: 40,
-              width: 70,
+              height: height,
+              width: width,
               at: [x, y],
               align: :center,
+              overflow: :shrink_to_fit,
               size: 12,
               style: :bold
   end
