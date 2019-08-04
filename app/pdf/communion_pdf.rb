@@ -715,12 +715,12 @@ class CommunionPdf < Prawn::Document
     draw_lineup_name(line_break_name(lineup.position_11), 592, 168, 25)
 
     # Fill left balcony names.
-    draw_lineup_name(line_break_name(lineup.position_16), 60, 90)
-    draw_lineup_name(line_break_name(lineup.position_14), 138, 90)
+    draw_lineup_name(line_break_name(lineup.position_16), 60, 95, 35)
+    draw_lineup_name(line_break_name(lineup.position_14), 138, 95, 35)
 
     # Fill right balcony names.
-    draw_lineup_name(line_break_name(lineup.position_13), 515, 90)
-    draw_lineup_name(line_break_name(lineup.position_15), 592, 90)
+    draw_lineup_name(line_break_name(lineup.position_13), 515, 95, 35)
+    draw_lineup_name(line_break_name(lineup.position_15), 592, 95, 35)
 
     # Test rectangle...
     # fill_color BLACK
