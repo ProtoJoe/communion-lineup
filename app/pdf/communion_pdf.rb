@@ -58,8 +58,8 @@ class CommunionPdf < Prawn::Document
     draw_choir
     draw_lower_level
     draw_balcony
-    draw_seating
     draw_labels
+    draw_seating(lineup)
 
     # Now populate the positions.
     fill_names(lineup)
@@ -382,8 +382,7 @@ class CommunionPdf < Prawn::Document
   end
 
   def draw_labels
-    draw_textbox(362, 436, 60, "Pulpit")
-    draw_textbox(362, 416, 120, "Communion Table")
+    draw_textbox(362, 436, 120, "Communion Table")
     draw_textbox(135, 250, 60, "Left")
     draw_textbox(362, 250, 60, "Center")
     draw_textbox(589, 250, 60, "Right")
@@ -403,19 +402,31 @@ class CommunionPdf < Prawn::Document
     draw_right_balcony
   end
 
-  def draw_seating
+  def draw_seating(lineup)
+    draw_seating_name(378, 372, lineup.position_1)
     draw_position_circle(378, 372, "1", FRONT_MID_DARK)
+    draw_seating_name(411, 372, lineup.position_3)
     draw_position_circle(411, 372, "3", FRONT_RIGHT_DARK)
+    draw_seating_name(444, 372, lineup.position_5)
     draw_position_circle(444, 372, "5", FRONT_RIGHT_LIGHT)
+    draw_seating_name(530, 372, lineup.position_7)
     draw_position_circle(530, 372, "7", BACK_MID_DARK)
+    draw_seating_name(570, 372, lineup.position_9)
     draw_position_circle(570, 372, "9", RIGHT_WING_LIGHT)
+    draw_seating_name(610, 372, lineup.position_11)
     draw_position_circle(610, 372, "11", RIGHT_WING_DARK)
 
+    draw_seating_name(346, 372, lineup.position_2)
     draw_position_circle(346, 372, "2", FRONT_MID_LIGHT)
+    draw_seating_name(313, 372, lineup.position_4)
     draw_position_circle(313, 372, "4", FRONT_LEFT_DARK)
+    draw_seating_name(280, 372, lineup.position_6)
     draw_position_circle(280, 372, "6", FRONT_LEFT_LIGHT)
+    draw_seating_name(194, 372, lineup.position_8)
     draw_position_circle(194, 372, "8", BACK_MID_LIGHT)
+    draw_seating_name(154, 372, lineup.position_10)
     draw_position_circle(154, 372, "10", LEFT_WING_LIGHT)
+    draw_seating_name(114, 372, lineup.position_12)
     draw_position_circle(114, 372, "12", LEFT_WING_DARK)
   end
 
@@ -639,6 +650,25 @@ class CommunionPdf < Prawn::Document
 
   def line_break_name(name)
     return name.gsub(' ', "\n")
+  end
+
+  def draw_seating_name(x, y, name)
+    xOff = 12
+    yOff = 20
+    text_rendering_mode(:fill_stroke) do
+      self.line_width = 0.5
+      rotate(45, origin: [x, y]) do
+        fill_color BLACK
+        stroke_color WHITE
+        text_box name.split(' ')[0],
+                  height: 20,
+                  width: 150,
+                  at: [x + xOff, y + yOff],
+                  align: :left,
+                  size: 12,
+                  style: :bold
+      end
+    end
   end
 
   def fill_names(lineup)
