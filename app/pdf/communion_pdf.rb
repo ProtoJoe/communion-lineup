@@ -560,9 +560,9 @@ class CommunionPdf < Prawn::Document
     draw_line([485, 140], [494, 140], RIGHT_WING_LIGHT, 4, nil, :circle, :dash)
     draw_line([494, 140], [494, 170], RIGHT_WING_LIGHT, 4, nil, :up_arrow)
 
-    draw_position_circle(685, 555, "11", RIGHT_WING_DARK)
-    draw_line([700, 550], [750, 500], RIGHT_WING_DARK, 4, nil, :circle)
-    draw_line([750, 500], [720, 220], RIGHT_WING_DARK, 4, nil, :circle, :dash)
+    draw_position_circle(670, 555, "11", RIGHT_WING_DARK)
+    draw_line([685, 550], [745, 500], RIGHT_WING_DARK, 4, nil, :circle)
+    draw_line([745, 500], [720, 220], RIGHT_WING_DARK, 4, nil, :circle, :dash)
     draw_line([720, 220], [702, 223], RIGHT_WING_DARK, 4, nil, :circle, :dash)
     draw_line([702, 223], [702, 140], RIGHT_WING_DARK, 4, nil, :circle, :dash)
     draw_line([702, 140], [684, 140], RIGHT_WING_DARK, 4, nil, :circle, :dash)
