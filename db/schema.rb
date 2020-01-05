@@ -15,28 +15,28 @@ ActiveRecord::Schema.define(version: 20171222202050) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "lineups", force: :cascade do |t|
-    t.date     "service_date"
-    t.string   "position_1"
-    t.string   "position_2"
-    t.string   "position_3"
-    t.string   "position_4"
-    t.string   "position_5"
-    t.string   "position_6"
-    t.string   "position_7"
-    t.string   "position_8"
-    t.string   "position_9"
-    t.string   "position_10"
-    t.string   "position_11"
-    t.string   "position_12"
-    t.string   "position_13"
-    t.string   "position_14"
-    t.string   "position_15"
-    t.string   "position_16"
-    t.string   "position_17"
-    t.string   "position_18"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+  create_table "lineups", id: :serial, force: :cascade do |t|
+    t.date "service_date"
+    t.string "position_1"
+    t.string "position_2"
+    t.string "position_3"
+    t.string "position_4"
+    t.string "position_5"
+    t.string "position_6"
+    t.string "position_7"
+    t.string "position_8"
+    t.string "position_9"
+    t.string "position_10"
+    t.string "position_11"
+    t.string "position_12"
+    t.string "position_13"
+    t.string "position_14"
+    t.string "position_15"
+    t.string "position_16"
+    t.string "position_17"
+    t.string "position_18"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
