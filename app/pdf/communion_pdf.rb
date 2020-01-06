@@ -670,12 +670,13 @@ class CommunionPdf < Prawn::Document
   def draw_seating_name(x, y, name)
     xOff = 12
     yOff = 20
+    firstName = name.split(' ')[0]
     text_rendering_mode(:fill_stroke) do
       self.line_width = 0.5
       rotate(45, origin: [x, y]) do
         fill_color BLACK
         stroke_color WHITE
-        text_box name.split(' ')[0],
+        text_box firstName || '',
                   height: 20,
                   width: 150,
                   at: [x + xOff, y + yOff],
