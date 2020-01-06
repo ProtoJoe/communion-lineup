@@ -38,6 +38,7 @@ class CommunionPdf < Prawn::Document
   LEFT_BALCONY_DARK   = darken_color(LEFT_BALCONY_LIGHT)
   RIGHT_BALCONY_LIGHT = '83c2d5'
   RIGHT_BALCONY_DARK  = darken_color(RIGHT_BALCONY_LIGHT, 0.4)
+  NURSERY             = '00FFB8'
 
   def initialize(lineup)
     super(page_layout: :landscape)
@@ -133,158 +134,172 @@ class CommunionPdf < Prawn::Document
     end
 
   def draw_entrance_lineup(lineup)
+    yStart = 440
     # Left side
     fill_color RED
     text_box  "Left Center Aisle Door",
-              at: [0, 405],
+              at: [0, yStart],
               width: 240,
               align: :right,
               style: :bold,
               size: 12
-    draw_line([140, 390], [280, 390], RED, 3, nil, :right_arrow)
+    draw_line([140, yStart - 15], [280, yStart - 15], RED, 3, nil, :right_arrow)
     text_box  "Turn Right at the Front Row",
-              at: [0, 385],
+              at: [0, yStart - 20],
               width: 280,
               align: :right,
               style: :bold_italic,
               size: 11
-    draw_line([280, 235], [140, 235], RED, 3, nil, :left_arrow)
+    draw_line([280, yStart - 160], [140, yStart - 160], RED, 3, nil, :left_arrow)
     text_box  "Turn Left at the Front Row",
-              at: [0, 230],
+              at: [0, yStart - 165],
               width: 280,
               align: :right,
               style: :bold_italic,
               size: 11
               
-    draw_position_circle(270, 350, "2", FRONT_MID_LIGHT)
+    draw_position_circle(270, yStart - 55, "2", FRONT_MID_LIGHT)
     text_box  lineup.position_2,
-              at: [0, 350],
+              at: [0, yStart - 55],
               width: 240,
               align: :right,
               style: :bold,
               size: 12
-    draw_position_circle(270, 310, "4", FRONT_LEFT_DARK)
+    draw_position_circle(270, yStart - 95, "4", FRONT_LEFT_DARK)
     text_box  lineup.position_4,
-              at: [0, 310],
+              at: [0, yStart - 95],
               width: 240,
               align: :right,
               style: :bold,
               size: 12
-    draw_position_circle(270, 270, "6", FRONT_LEFT_LIGHT)
+    draw_position_circle(270, yStart - 135, "6", FRONT_LEFT_LIGHT)
     text_box  lineup.position_6,
-              at: [0, 270],
+              at: [0, yStart - 135],
               width: 240,
               align: :right,
               style: :bold,
               size: 12
-    draw_position_circle(270, 200, "12", LEFT_WING_DARK)
+    draw_position_circle(270, yStart - 195, "12", LEFT_WING_DARK)
     text_box  lineup.position_12,
-              at: [0, 200],
+              at: [0, yStart - 195],
               width: 240,
               align: :right,
               style: :bold,
               size: 12
-    draw_position_circle(270, 160, "10", LEFT_WING_LIGHT)
+    draw_position_circle(270, yStart - 235, "10", LEFT_WING_LIGHT)
     text_box  lineup.position_10,
-              at: [0, 160],
+              at: [0, yStart - 235],
               width: 240,
               align: :right,
               style: :bold,
               size: 12
-    draw_position_circle(270, 120, "8", BACK_MID_LIGHT)
+    draw_position_circle(270, yStart - 275, "8", BACK_MID_LIGHT)
     text_box  lineup.position_8,
-              at: [0, 120],
+              at: [0, yStart - 275],
               width: 240,
               align: :right,
               style: :bold,
               size: 12
 
     # Middle
-    draw_line([346, 120], [346, 370], RED, 3, nil, :up_arrow)
+    draw_line([346, yStart - 275], [346, yStart - 35], RED, 3, nil, :up_arrow)
     fill_color BLACK
     text_box  "ENTRANCE",
-              at: [358, 360],
+              at: [358, yStart - 45],
               width: 9,
               height: 250,
               align: :center,
               style: :bold,
               size: 12
     text_box  "LINEUP",
-              at: [358, 220],
+              at: [358, yStart - 185],
               width: 9,
               height: 250,
               align: :center,
               style: :bold,
               size: 12
-    draw_line([378, 120], [378, 370], RED, 3, nil, :up_arrow)
+    draw_line([378, yStart - 275], [378, yStart - 35], RED, 3, nil, :up_arrow)
 
     # Right
     fill_color RED
     text_box  "Left Center Aisle Door",
-              at: [480, 405],
+              at: [480, yStart],
               align: :left,
               style: :bold,
               size: 12
-    draw_line([575, 390], [435, 390], RED, 3, nil, :left_arrow)
+    draw_line([575, yStart - 15], [435, yStart - 15], RED, 3, nil, :left_arrow)
     text_box  "Turn Left at the Front Row",
-              at: [435, 385],
+              at: [435, yStart - 20],
               align: :left,
               style: :bold_italic,
               size: 11
-    draw_line([435, 235], [575, 235], RED, 3, nil, :right_arrow)
+    draw_line([435, yStart - 160], [575, yStart - 160], RED, 3, nil, :right_arrow)
     text_box  "Turn Right at the Front Row",
-              at: [435, 230],
+              at: [435, yStart - 165],
               align: :left,
               style: :bold_italic,
               size: 11
 
-    draw_position_circle(450, 350, "1", FRONT_MID_DARK)
+    draw_position_circle(450, yStart - 55, "1", FRONT_MID_DARK)
     text_box  lineup.position_1,
-              at: [480, 350],
+              at: [480, yStart - 55],
               align: :left,
               style: :bold,
               size: 12
-    draw_position_circle(450, 310, "3", FRONT_RIGHT_DARK)
+    draw_position_circle(450, yStart - 95, "3", FRONT_RIGHT_DARK)
     text_box  lineup.position_3,
-              at: [480, 310],
+              at: [480, yStart - 95],
               align: :left,
               style: :bold,
               size: 12
-    draw_position_circle(450, 270, "5", FRONT_RIGHT_LIGHT)
+    draw_position_circle(450, yStart - 135, "5", FRONT_RIGHT_LIGHT)
     text_box  lineup.position_5,
-              at: [480, 270],
+              at: [480, yStart - 135],
               align: :left,
               style: :bold,
               size: 12
-    draw_position_circle(450, 200, "11", RIGHT_WING_DARK)
+    draw_position_circle(450, yStart - 195, "11", RIGHT_WING_DARK)
     text_box  lineup.position_11,
-              at: [480, 200],
+              at: [480, yStart - 195],
               align: :left,
               style: :bold,
               size: 12
-    draw_position_circle(450, 160, "9", RIGHT_WING_LIGHT)
+    draw_position_circle(450, yStart - 235, "9", RIGHT_WING_LIGHT)
     text_box  lineup.position_9,
-              at: [480, 160],
+              at: [480, yStart - 235],
               align: :left,
               style: :bold,
               size: 12
-    draw_position_circle(450, 120, "7", BACK_MID_DARK)
+    draw_position_circle(450, yStart - 275, "7", BACK_MID_DARK)
     text_box  lineup.position_7,
-              at: [480, 120],
+              at: [480, yStart - 275],
               align: :left,
               style: :bold,
               size: 12
 
-    draw_line([0, 95], [722, 95], BLACK, 3, :circle, :circle)
+    nurseryOffset = yStart - 310
+    draw_position_circle(40, nurseryOffset, "19", NURSERY)
+    text_box  lineup.position_19,
+              at: [70, nurseryOffset + 10],
+              align: :left,
+              style: :bold,
+              size: 12
+    text_box  "Please deliver communion to the nursery and, if applicable, kitchen staff between 11a and 11:30a",
+              at: [70, nurseryOffset - 3],
+              align: :left,
+              style: :italic,
+              size: 11
+
+    draw_line([0, yStart - 340], [722, yStart - 340], BLACK, 3, :circle, :circle)
   end
 
   def draw_paths(lineup)
     draw_textbox(362, 575, 120, "Communion Table")    
 
     y_position = 520
-    y_offset = 40
-    draw_position_circle(378, y_position + 10, "1", FRONT_MID_DARK)
-    draw_line([378, y_position - y_offset - 5], [378, y_position - 10], RED, 2, nil, :up_arrow, :dot)
+    y_offset = 25
+    draw_position_circle(380, y_position + 10, "1", FRONT_MID_DARK)
+    draw_line([380, y_position - y_offset - 5], [380, y_position - 10], RED, 2, nil, :up_arrow, :dot)
     draw_position_circle(410, y_position - y_offset, "3", FRONT_RIGHT_DARK)
     draw_line([428, y_position - y_offset], [450, y_position - y_offset], RED, 2, nil, :right_arrow, :dot)
     draw_position_circle(470, y_position - y_offset, "5", FRONT_RIGHT_LIGHT)
@@ -297,8 +312,8 @@ class CommunionPdf < Prawn::Document
     draw_line([690, y_position - y_offset + 18], [690, y_position + 10], RED, 2, nil, nil, :dot)
     draw_line([690, y_position + 10], [400, y_position + 10], RED, 2, nil, :left_arrow, :dot)
 
-    draw_position_circle(346, y_position + 10, "2", FRONT_MID_LIGHT)
-    draw_line([346, y_position - y_offset - 5], [346, y_position - 10], RED, 2, nil, :up_arrow, :dot)
+    draw_position_circle(344, y_position + 10, "2", FRONT_MID_LIGHT)
+    draw_line([344, y_position - y_offset - 5], [344, y_position - 10], RED, 2, nil, :up_arrow, :dot)
     draw_position_circle(310, y_position - y_offset, "4", FRONT_LEFT_DARK)
     draw_line([292, y_position - y_offset], [270, y_position - y_offset], RED, 2, nil, :left_arrow, :dot)
     draw_position_circle(250, y_position - y_offset, "6", FRONT_LEFT_LIGHT)
@@ -360,7 +375,7 @@ class CommunionPdf < Prawn::Document
               align: :right,
               size: 12
 
-    draw_line([0, 435], [722, 435], BLACK, 3, nil, nil, :dash_dot)
+    draw_line([0, 455], [722, 455], BLACK, 3, nil, nil, :dash_dot)
   end
 
   def draw_date(lineup)
