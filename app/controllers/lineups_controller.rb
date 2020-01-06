@@ -66,6 +66,7 @@ class LineupsController < ApplicationController
                                       :position_15,
                                       :position_16,
                                       :position_17,
-                                      :position_18)
+                                      :position_18,
+                                      :position_19)
     end
 end

@@ -26,5 +26,6 @@ class Lineup < ApplicationRecord
     self.position_16 = normalize_name(self.position_16)
     self.position_17 = normalize_name(self.position_17)
     self.position_18 = normalize_name(self.position_18)
+    self.position_19 = normalize_name(self.position_19)
   end
 end
