@@ -2,8 +2,8 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `rails
-# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(version: 2020_01_06_005235) do
     t.string "position_16"
     t.string "position_17"
     t.string "position_18"
-    t.string "position_19"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "position_19"
   end
 
 end
