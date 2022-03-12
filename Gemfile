@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby "2.7.3"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6'
+gem 'rails', '~> 7'
 # Postgres for DB
 gem 'pg'
 # Use Puma as the app server
