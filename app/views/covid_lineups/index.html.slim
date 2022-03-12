@@ -1,0 +1,16 @@
+= link_to 'Create a New Lineup', new_covid_lineup_path
+- if CovidLineup.count > 0
+  h1 Existing Lineups:
+  - CovidLineup.order(service_date: :asc).each do |covid_lineup|
+    h2 = "Communion Lineup for #{covid_lineup.service_date}"
+    p
+      = link_to 'View', covid_lineup_path(covid_lineup), target: '_blank'
+      = ' - '
+      = link_to 'Edit', edit_covid_lineup_path(covid_lineup)
+      = ' - '
+      = link_to 'Delete', covid_lineup_path(covid_lineup),
+                          method: :delete,
+                          data: { confirm: "Are you sure you wish to delete this entry?" }
+    p = "(Debug: #{covid_lineup.id})"
+- else
+  h1 No Lineups

@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_06_005235) do
+ActiveRecord::Schema.define(version: 2022_03_12_211616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "covid_lineups", force: :cascade do |t|
+    t.date "service_date"
+    t.string "position_1"
+    t.string "position_2"
+    t.string "position_3"
+    t.string "position_4"
+    t.string "position_5"
+    t.string "position_6"
+    t.string "position_7"
+    t.string "position_8"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "lineups", id: :serial, force: :cascade do |t|
     t.date "service_date"
