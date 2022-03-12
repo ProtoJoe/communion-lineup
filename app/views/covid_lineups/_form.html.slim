@@ -1,0 +1,12 @@
+- url = @covid_lineup.new_record? ? covid_lineups_path : covid_lineup_path(@covid_lineup)
+= simple_form_for @covid_lineup, url: url do |f|
+  = f.input :service_date
+  = f.input :position_1, label: '1 - Front Entrance, Piano Side'
+  = f.input :position_2, label: '2 - Front Entrance, Organ Side'
+  = f.input :position_3, label: '3 - Narthex Entrance, Left'
+  = f.input :position_4, label: '4 - Narthex Entrance, Middle Left'
+  = f.input :position_5, label: '5 - Narthex Entrance, Middle Right'
+  = f.input :position_6, label: '6 - Narthex Entrance, Right Side'
+  = f.input :position_7, label: '7 - Balcony Entrance, Left Side'
+  = f.input :position_8, label: '8 - Balcony Entrance, Right Side'
+  = f.submit 'Save', class: 'btn btn-primary'
