@@ -19,5 +19,6 @@ test:
 
 production:
   <<: *default
+  username: communion
   database: communion_lineup_production
   url: <%= ENV['DATABASE_URL'] %>

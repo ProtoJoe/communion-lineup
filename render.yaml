@@ -1,7 +1,7 @@
 databases:
   - name: communion-lineup
     databaseName: communion_lineup_production
-    user: postgres
+    user: communion
 
 services:
   - type: web
